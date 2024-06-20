@@ -49,7 +49,6 @@ public class LinkedListRe {
         }
         System.out.println("Null");
     }
-
     public void addMiddle(int index,int data){
         Node newNode=new Node(data);
         if(head==null){
@@ -68,7 +67,6 @@ public class LinkedListRe {
         size++;
 
     }
-
     public int removeFirst(){
         if(size==0){
             System.out.println("Linked list is Empty");
@@ -85,7 +83,6 @@ public class LinkedListRe {
         return val;
 
     }
-
     public int removeLast(){
         if(size==0){
             System.out.println("Linked list is Empty");
@@ -106,26 +103,76 @@ public class LinkedListRe {
         int val=temp.data;
         size--;
         return val;
-
     }
+    //searching iterative
+    public int itrSearch(int key){
+        Node temp=head;
+        int i=0;
+        while(temp != null){
+            if(temp.data==key){
+                return i;
+            }
+            temp=temp.next;
+            i++;
+        }
+        return -1;
+    }
+
+    //reversing a linked list
+    public void reverse(){
+        Node prev=null;
+        Node curr=tail=head;
+        Node next;
+        while( curr !=null){
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
+
+        }
+        head=prev;
+    }
+    public void DeleteFromNthNode(int n){
+        int sz=0;
+        Node temp=head;
+        while (temp != null){
+            temp=temp.next;
+            sz++;
+        }
+        if(n==sz){
+            head=head.next;
+        }
+
+        Node prev=head;
+        int i=1;
+        int itofind=sz-n;
+        while(i<itofind){
+            prev=prev.next;
+            i++;
+        }
+        prev.next=prev.next.next;
+        return;
+    }
+
+
+
+
+
 
     public static void main(String args[]){
         LinkedListRe l1=new LinkedListRe();
-        l1.printLL();
         l1.addFirst(2);
-        l1.printLL();
         l1.addFirst(1);
-        l1.printLL();
         l1.addLast(3);
-        l1.printLL();
         l1.addLast(4);
-        l1.printLL();
         l1.addMiddle(2,9);
         l1.printLL();
-
-        System.out.println(size);
-
-
+       // int i=l1.itrSearch(9);
+        //System.out.println(i);
+        l1.reverse();
+        l1.printLL();
+        l1.DeleteFromNthNode(3);
+        l1.printLL();
     }
 
 
