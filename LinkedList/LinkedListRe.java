@@ -197,20 +197,26 @@ public class LinkedListRe {
         return true;
     }
 
-
-
+    public static boolean DetectCycle(){
+        Node slow=head;
+        Node fast=head;
+        while(fast!=null && fast.next != null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+    return false;
+    }
 
     public static void main(String args[]){
         LinkedListRe l1=new LinkedListRe();
-        l1.addFirst(2);
-        l1.addFirst(1);
-        l1.addLast(2);
-        l1.addLast(1);
-        l1.addMiddle(2,9);
-        l1.addMiddle(3,9);
-       // int i=l1.itrSearch(9);
-        //System.out.println(i);
-        System.out.print(l1.checkPalindrome());
+        head=new Node(1);
+        head.next=new Node(2);
+        head.next.next=new Node(3);
+        head.next.next.next=head;
+        System.out.println(DetectCycle());
     }
 
 
