@@ -166,6 +166,36 @@ public class LinkedListRe {
         return slow;
     }
 
+    public boolean checkPalindrome(){
+        // find the middle
+        if(head==null || head.next == null){
+            return true;
+        }
+        Node midNode=findMid(head);
+
+        // step-2 Reverse 2nd half
+        Node prev=null;
+        Node current=midNode;
+        Node next;
+        while( current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+
+        }
+        Node right=prev;
+        Node left=head;
+
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            left=left.next;
+            right=right.next;
+        }
+        return true;
+    }
 
 
 
@@ -174,16 +204,13 @@ public class LinkedListRe {
         LinkedListRe l1=new LinkedListRe();
         l1.addFirst(2);
         l1.addFirst(1);
-        l1.addLast(3);
-        l1.addLast(4);
+        l1.addLast(2);
+        l1.addLast(1);
         l1.addMiddle(2,9);
-        l1.printLL();
+        l1.addMiddle(3,9);
        // int i=l1.itrSearch(9);
         //System.out.println(i);
-        l1.reverse();
-        l1.printLL();
-        l1.DeleteFromNthNode(3);
-        l1.printLL();
+        System.out.print(l1.checkPalindrome());
     }
 
 
