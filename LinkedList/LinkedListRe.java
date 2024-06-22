@@ -235,6 +235,8 @@ public class LinkedListRe {
 
     }
 
+
+
     public static void main(String args[]){
         LinkedListRe l1=new LinkedListRe();
         head=new Node(1);
