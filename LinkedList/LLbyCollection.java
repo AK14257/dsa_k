@@ -1,6 +1,7 @@
 import java.util.*;
 import java.util.LinkedList;
 
+
 public class LLbyCollection {
     public static void main(String args[]){
         LinkedList<Integer> l1=new LinkedList<>();
