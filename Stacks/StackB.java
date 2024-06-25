@@ -23,17 +23,19 @@ public class StackB {
         public static int peek(){
             int top=list.get(list.size()-1);
             return top;
-        }
-
-        public static void main(String args[]){
+        }}
+    public static void main(String args[]){
             stack s=new stack();
             s.push(1);
             s.push(2);
             s.push(3);
-            while (s !=)
+            while (!s.isEmpty()){
+                System.out.println(s.peek());
+                s.pop();
+
+            }
         }
 
 
 
     }
-}
