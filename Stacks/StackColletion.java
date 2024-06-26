@@ -27,15 +27,29 @@ public class StackColletion {
         return str1;
 
     }
+    public static Stack<Integer> reverseStack(Stack<Integer> s){
+        if(s.isEmpty()){
+            return s;
+        }
+        else{
+            int top=s.pop();
+            reverseStack(s);
+            pushAtBottom(s,top);
+            return s;
+        }
+
+    }
+
     public static void main(String args[]){
-       // Stack<Integer> s=new Stack<>();
-       // s.push(10);
-       // s.push(20);
-       // s.push(30);
+        Stack<Integer> s=new Stack<>();
+        s.push(10);
+       s.push(20);
+        s.push(30);
        // pushAtBottom(s,4);
-       // System.out.println(s);
-        String str="abc";
-        System.out.print(reverseString(str));
+        System.out.println(s);
+       // String str="abc";
+        //System.out.print(reverseString(str));
+        System.out.println(reverseStack(s));
 
 
 
