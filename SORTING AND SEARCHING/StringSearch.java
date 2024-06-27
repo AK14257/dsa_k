@@ -10,6 +10,11 @@ public class StringSearch {
 
         }
         return false;
+
+        // for(char ch : s.toCharArray()){
+       // if(ch==target){
+         //   return true;
+       // }
     }
     public static void main(String agrs[]){
         String s="abhishek kumar yadav is best";
